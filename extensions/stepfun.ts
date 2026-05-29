@@ -179,6 +179,7 @@ function buildModelList(remoteModels: RemoteModel[]) {
         cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
         contextWindow: spec.contextWindow,
         maxTokens: spec.maxTokens,
+        compat: { supportsDeveloperRole: false },
       };
     });
   }
@@ -194,6 +195,7 @@ function buildModelList(remoteModels: RemoteModel[]) {
       cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
       contextWindow: spec.contextWindow,
       maxTokens: spec.maxTokens,
+      compat: { supportsDeveloperRole: false },
     };
   });
 }
@@ -216,6 +218,8 @@ export default async function (pi: ExtensionAPI) {
     api: "openai-completions",
     authHeader: true,
     models,
+    compat: { supportsDeveloperRole: false },
+
 
     oauth: {
       name: "StepFun",
